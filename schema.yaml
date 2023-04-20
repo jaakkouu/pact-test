@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sample API
+  description: A sample API to illustrate OpenAPI concepts
+paths:
+  /applications:
+    get:
+      operationId: getApplications
+      description: Returns a list of applications     
+      responses:
+        '200':
+          description: List of applications
+          content: 
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+components:
+  schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        created:
+          type: string
+          format: date-time
+        attachments:
+          items:
+            $ref: '#/components/schemas/Attachment'
+      required:
+        - id
+        - title
+        - created
+    Attachment:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        created:
+          type: string
+          format: date-time

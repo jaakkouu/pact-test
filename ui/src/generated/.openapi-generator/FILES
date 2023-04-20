@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+apis/DefaultApi.ts
+apis/index.ts
+index.ts
+models/Application.ts
+models/Attachment.ts
+models/index.ts
+runtime.ts

@@ -1,0 +1,92 @@
+{
+  "consumer": {
+    "name": "MyConsumer"
+  },
+  "interactions": [
+    {
+      "description": "a request for all applications with the builder pattern",
+      "providerStates": [
+        {
+          "name": "I have a list of applications"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/applications"
+      },
+      "response": {
+        "body": [
+          {
+            "attachments": [
+              {
+                "created": "2023-04-29T09:48:59.608Z",
+                "id": 1,
+                "title": "title"
+              }
+            ],
+            "created": "2023-04-29T09:48:59.608Z",
+            "id": 0,
+            "title": "title"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request for all applications with the builder pattern",
+      "providerStates": [
+        {
+          "name": "I have no applications"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/applications"
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 204
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "11.0.2"
+    },
+    "pactRust": {
+      "ffi": "0.4.0",
+      "models": "1.0.4"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "MyProvider"
+  }
+}
